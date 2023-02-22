@@ -1,15 +1,10 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import Review from './foodfile/reviewModel.js'
 import lifecycle from './middleware/lifecycle.js'
 // import foodFileReview from '../foodfile/model.js'
 
 const app = express()
-
-const todoSchema = new mongoose.Schema({
-  text: String
-})
-
-const Todo = mongoose.model('Todo', todoSchema)
 
 app.use(lifecycle({
   async setup() {
@@ -26,18 +21,18 @@ app.use(lifecycle({
 }))
 
 // Feel free to use a router and move this elsewhere.
-app.get('/api', async (req, res) => {
-  await Todo.insertMany([{ text: (new Date()).toISOString() }])
-  const todos = await Todo.find()
-
-  console.log(process.env.DATABASE_URL)
-  res.json({ message: 'Hello World', todos })
-})
-
 // app.get('/api', async (req, res) => {
-//   const showFood = await foodFileReview.find()
-//   res.json(showFood)
+//   await Todo.insertMany([{ text: (new Date()).toISOString() }])
+// const todos = await Todo.find()
+
+//   console.log(process.env.DATABASE_URL)
+//   res.json({ message: 'Hello World', todos })
 // })
+
+app.get('/api', async (req, res) => {
+  const showFood = await Review.find()
+  res.json(showFood)
+})
 
 // Don't use app.listen. Instead export app.
 export default app

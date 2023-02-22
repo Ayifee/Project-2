@@ -5,7 +5,8 @@ let foodReviewSchema = new Schema({
   name: String,
   Location: String,
   Food: {
-    items: String,
+    foodName: String,
+    extra: String,
   },
   Price: String,
   Rating: Number,
