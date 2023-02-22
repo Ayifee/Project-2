@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import lifecycle from './middleware/lifecycle.js'
+// import foodFileReview from '../foodfile/model.js'
 
 const app = express()
 
@@ -32,6 +33,11 @@ app.get('/api', async (req, res) => {
   console.log(process.env.DATABASE_URL)
   res.json({ message: 'Hello World', todos })
 })
+
+// app.get('/api', async (req, res) => {
+//   const showFood = await foodFileReview.find()
+//   res.json(showFood)
+// })
 
 // Don't use app.listen. Instead export app.
 export default app
