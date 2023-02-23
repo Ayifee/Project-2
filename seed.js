@@ -10,4 +10,4 @@ await Review.insertMany(foodFileUsersReviews)
 await FoodFileUsers.deleteMany()
 await FoodFileUsers.insertMany(Accounts)
 await mongoose.disconnect()
-await FoodFile
+
