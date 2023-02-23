@@ -7,6 +7,11 @@ const foodFileUser = new Schema({
     type: String,
     required: true
   },
+  username: {
+    type: String,
+    required: true,
+    unique: true
+  },
   email: {
     type: String,
     required: true,
@@ -14,10 +19,6 @@ const foodFileUser = new Schema({
   },
   birthday: {
     type: Number,
-    required: true,
-  },
-  gender: {
-    type: String,
     required: true,
   },
   status: {
