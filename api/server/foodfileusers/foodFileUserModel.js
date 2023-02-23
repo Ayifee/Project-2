@@ -30,4 +30,4 @@ const foodFileUserSchema = new Schema({
   }
 })
 
-export default mongoose.model('foodFileAccount', foodFileUserSchema)
+export default mongoose.model('FoodFileUsers', foodFileUserSchema)
