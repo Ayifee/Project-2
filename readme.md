@@ -4,4 +4,4 @@ App Description - Foodfile is a website that allows you to share your personal f
 API - API
 MVP - Account Login, Title , Location, Price , Rating, and review of the food  
 POST MVP - add in option for photos to reviews, work on the front end and maybe make an api for creating accounts for the website.
-Goals - DAY 1 RESEARCh DAY 2 creating schema to make objects for the database. DAY 3-5 working on javascript. Day 6 testing day 7 post mvp
+Goals - DAY 1 RESEARCh DAY 2 creating schema to make objects for the database. DAY 3-5 working on javascript. Day 6 testing day 7 post mvpzs
