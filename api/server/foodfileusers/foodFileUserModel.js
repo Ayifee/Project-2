@@ -1,8 +1,7 @@
 import mongoose from 'mongoose'
-
 const Schema = mongoose.Schema
 
-const foodFileUser = new Schema({
+const foodFileUserSchema = new Schema({
   full_name: {
     type: String,
     required: true
@@ -12,13 +11,17 @@ const foodFileUser = new Schema({
     required: true,
     unique: true
   },
+  password: {
+    type: String,
+    required: true
+  },
   email: {
     type: String,
     required: true,
     unique: true
   },
   birthday: {
-    type: Number,
+    type: String,
     required: true,
   },
   status: {
@@ -27,4 +30,4 @@ const foodFileUser = new Schema({
   }
 })
 
-export default mongoose.model('Employee', foodFileUser)
+export default mongoose.model('foodFileAccount', foodFileUserSchema)
