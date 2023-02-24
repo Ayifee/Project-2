@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 let foodReviewSchema = new Schema({
+  title: String,
   name: String,
   Location: String,
   Food: {
