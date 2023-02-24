@@ -1,20 +1,19 @@
 import express from 'express'
 import mongoose from 'mongoose'
-import * as dotenv from 'dotenv'
-dotenv.config()
+
 // import Review from './foodfile/reviewModel.js'
 // import FoodFileUsers from './server/foodfileusers/foodFileUserModel.js'
-import lifecycle from './middleware/lifecycle.js'
+// import lifecycle from './middleware/lifecycle.js'
 // import foodFileReview from '../foodfile/model.js'
-import router from './router/foodFileUserModelRouter.js'
+// import router from './router/foodFileUserModelRouter.js'
 const app = express()
 
-app.use("/", router, routerlifecycle({
+app.use(lifecycle({
   async setup() {
     console.log('Before handler')
     // Put your database connection here. e.g.
     // @ts-ignore
-    await mongoose.connect(process.env.DATABASE_URL)
+    mongoose.connect(process.env.DATABASE_URL)
   },
   async cleanup() {
     console.log('After handler')
@@ -23,7 +22,13 @@ app.use("/", router, routerlifecycle({
   }
 }))
 
-console.log(process.env.DATABASE_URL)
+app.get('/', (req, res) => {
+  res.json({ message: "help me" })
+})
+
+// console.log(process.env.DATABASE_URL)
+// app.use('/api', router)
+
 // Feel free to use a router and move this elsewhere.
 // app.get('/api', async (req, res) => {
 //   await Todo.insertMany([{ text: (new Date()).toISOString() }])
