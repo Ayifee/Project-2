@@ -1,4 +1,4 @@
-import FoodFileUsers from '../server/foodfileusers/foodFileUserModel.js'
+import FoodFileUsers from '../models/foodFileUserModel.js'
 
 export const getUserInfo = async (req, res) => {
   try {

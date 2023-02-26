@@ -9,4 +9,42 @@
 
 @baseUrl = {{host}}/api/
 
+
+# @name = SHOW_INDEX
 GET {{baseUrl}}
+###
+
+# @name = CREATE_USER
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "full_name": {
+    "type": "Name",
+    "required": true
+  },
+  "username": {
+    "type": "Ban",
+    "required": true,
+    "unique": true
+  },
+  "password": {
+    "type": "balls",
+    "required": true
+  },
+  "email": {
+    "type": "2345@gmail",
+    "required": true,
+    "unique": true
+  },
+  "birthday": {
+    "type": "06/3/99",
+    "required": true,
+  },
+  "status": {
+    "type": true,
+    "required": true,
+  }
+}
+  ###
+ 

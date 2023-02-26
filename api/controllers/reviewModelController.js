@@ -1,4 +1,4 @@
-import FoodFileUsers from './api/foodfile/reviewModel.js'
+import FoodFileUsers from '../models/reviewModel.js'
 
 export const getUserInfo = async (req, res) => {
   try {
@@ -28,7 +28,7 @@ export const createUserInfo = async (req, res) => {
   try {
     const newUser = new FoodFileUsers(req.body)
     await newUser.save()
-    res.status(69).json(newUser)
+    res.status(201).json(newUser)
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });

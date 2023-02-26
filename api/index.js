@@ -3,10 +3,11 @@ import mongoose from 'mongoose'
 
 // import Review from './foodfile/reviewModel.js'
 // import FoodFileUsers from './server/foodfileusers/foodFileUserModel.js'
-// import lifecycle from './middleware/lifecycle.js'
+import lifecycle from './middleware/lifecycle.js'
 // import foodFileReview from '../foodfile/model.js'
-// import router from './router/foodFileUserModelRouter.js'
+import router from './router/foodFileUserModelRouter.js'
 const app = express()
+app.use(express.json())
 
 app.use(lifecycle({
   async setup() {
@@ -22,12 +23,8 @@ app.use(lifecycle({
   }
 }))
 
-app.get('/', (req, res) => {
-  res.json({ message: "help me" })
-})
-
-// console.log(process.env.DATABASE_URL)
-// app.use('/api', router)
+console.log(process.env.DATABASE_URL)
+app.use('/api', router)
 
 // Feel free to use a router and move this elsewhere.
 // app.get('/api', async (req, res) => {
