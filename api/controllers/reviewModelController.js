@@ -1,21 +1,21 @@
-import FoodFileUsers from '../models/reviewModel.js'
+import userReview from 'api/json/foodFileEntry.json'
 
 export const getUserInfo = async (req, res) => {
   try {
-    const users = await FoodFileUsers.find()
-    res.json(users)
+    const reviews = await userReview.find()
+    res.json(reviews)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: error.message })
   }
 }
 
-export const getUserEmail = async (req, res) => {
+export const getUserEmailReview = async (req, res) => {
   try {
     const { email } = req.params
-    const users = await FoodFileUsers.find({ email: email })
-    if (users) {
-      return res.json(users)
+    const reviews = await userReview.find({ email: email })
+    if (reviews) {
+      return res.json(reviews)
     }
   }
   catch (error) {
@@ -24,40 +24,40 @@ export const getUserEmail = async (req, res) => {
   }
 }
 
-export const createUserInfo = async (req, res) => {
+export const createReview = async (req, res) => {
   try {
-    const newUser = new FoodFileUsers(req.body)
-    await newUser.save()
-    res.status(201).json(newUser)
+    const newReview = new userReview(req.body)
+    await newReview.save()
+    res.status(201).json(newReview)
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: error.message });
+    console.error(error)
+    res.status(500).json({ error: error.message })
   }
 }
 
-export const updateUserInfo = async (req, res) => {
+export const updateReview = async (req, res) => {
   try {
-    const { email } = req.params;
-    const users = await FoodFileUsers.findOneAndUpdate({ email: email }, req.body);
-    res.status(201).json(users);
+    const { email } = req.params
+    const reviews = await userReview.findOneAndUpdate({ email: email }, req.body)
+    res.status(201).json(reviews)
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: error.message });
+    console.error(error)
+    res.status(500).json({ error: error.message })
   }
-};
+}
 
-export const deleteUserInfo = async (req, res) => {
+export const deleteReview = async (req, res) => {
   try {
-    const { email } = req.params;
-    const deleted = await FoodFileUsers.findOneAndDelete({ email: email });
+    const { email } = req.params
+    const deleted = await userReview.findOneAndDelete({ email: email })
 
     if (deleted) {
-      return res.status(200).send("Account deleted!");
+      return res.status(200).send('Account deleted!')
     } else {
-      throw new Error("Email not found");
+      throw new Error('Email not found')
     }
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: error.message });
+    console.error(error)
+    res.status(500).json({ error: error.message })
   }
-};
+}

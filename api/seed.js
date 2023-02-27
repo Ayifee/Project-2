@@ -9,7 +9,7 @@ import FoodFileUsers from './models/foodFileUserModel.js'
 mongoose.connect(process.env.DATABASE_URL)
 mongoose.set('strictQuery', true)
 
-await seed();
+await seed()
 await mongoose.disconnect()
 
 async function seed() {
