@@ -1,6 +1,6 @@
-import userReview from 'api/json/foodFileEntry.json'
+import userReview from '../models/reviewModel.js'
 
-export const getUserInfo = async (req, res) => {
+export const getUserReview = async (req, res) => {
   try {
     const reviews = await userReview.find()
     res.json(reviews)
@@ -48,13 +48,13 @@ export const updateReview = async (req, res) => {
 
 export const deleteReview = async (req, res) => {
   try {
-    const { email } = req.params
-    const deleted = await userReview.findOneAndDelete({ email: email })
+    const { title } = req.params
+    const deleted = await userReview.findOneAndDelete({ title: title })
 
     if (deleted) {
-      return res.status(200).send('Account deleted!')
+      return res.status(200).send('Post Deleted')
     } else {
-      throw new Error('Email not found')
+      throw new Error('Post Not Found')
     }
   } catch (error) {
     console.error(error)
