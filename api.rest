@@ -10,41 +10,39 @@
 @baseUrl = {{host}}/api/
 
 
-# @name = SHOW_INDEX
+# @name SHOW_INDEX
 GET {{baseUrl}}
 ###
 
-# @name = CREATE_USER
+# @name CREATE_USER
 POST {{baseUrl}}
 Content-Type: application/json
 
 {
-  "full_name": {
-    "type": "Name",
-    "required": true
-  },
-  "username": {
-    "type": "Ban",
-    "required": true,
-    "unique": true
-  },
-  "password": {
-    "type": "balls",
-    "required": true
-  },
-  "email": {
-    "type": "2345@gmail",
-    "required": true,
-    "unique": true
-  },
-  "birthday": {
-    "type": "06/3/99",
-    "required": true,
-  },
-  "status": {
-    "type": true,
-    "required": true,
-  }
+  "full_name": "Name",
+  "username": "Basn",
+  "password": "7659",
+  "email": "232345@gmail",
+  "birthday": "06/3/99",
+  "status": true
 }
-  ###
- 
+###
+
+# @name UPDATE_USER
+PATCH {{baseUrl}}/232345@gmail.com
+Content-Type:application/json
+
+{
+  "full_name": "Name",
+  "username": "Bassn",
+  "password": "7659",
+  "email": "william5@gmail",
+  "birthday": "06/3/99",
+  "status": true
+}
+###
+
+ # @name DELETE_USER
+DELETE {{baseUrl}}/william5@gmail
+
+###
