@@ -27,8 +27,9 @@ export const getUserEmail = async (req, res) => {
 export const createUserInfo = async (req, res) => {
   try {
     const newUser = new FoodFileUsers(req.body)
+    console.log(newUser)
     await newUser.save()
-    res.status(69).json(newUser)
+    res.status(200).json(newUser)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: error.message })
