@@ -1,9 +1,12 @@
-> [Template Used](https://github.com/metruzanca/ga-vercel-demo)
-###Contents:
-**App Title
-Foodfile
-**API SNIPET
-const foodFileUserSchema = new Schema({
+APP TITLE: Foodfile
+APP DESCRIPTION:
+A social media app where you can connect and share food reviews with friends.
+
+API:
+Self made api
+
+API SNIPPET:
+[const foodFileUserSchema = new Schema({
   full_name: {
     type: String,
     required: true
@@ -31,13 +34,19 @@ const foodFileUserSchema = new Schema({
     required: true,
   }
 })
-**App Description**
-Foodfile is a website that allows you to share your personal food reviews with others. Connect with friends to view and share each other's dining experiences. With Foodfile, you can showcase what you have eaten and see what your friends have indulged in.
-**API**
-Foodfile api
-**MVP**
-Account Creation and review creation, Email, Password, Title , Location, Price , Rating, etc
-**POST MVP**
-add in option for photos to reviews, work on the front end and maybe make an api for creating accounts for the website.
-**Goals**
-DAY 1 RESEARCh DAY 2 creating schema to make objects for the database. DAY 3-5 working on javascript. Day 6 testing day 7 post mvpzs
+API CODE:
+@baseUrl = {{host}}/api/
+
+GET {{baseUrl}}
+###
+MVP:
+The MVP for this project is:
+
+ Working Get request
+ Working Patch request
+ Working Post request
+ Working Delete request
+POST-MVP:
+Frontend and authentcation
+GOALS:
+DAY 1 RESEARCh DAY 2 creating schema to make objects for the database. DAY 3-5 working on javascript. Day 6 testing day 7 post mvps
